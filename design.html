@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Cases Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            background-color: #f0f0f0;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #25274d;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .create-button {
+            background-color: #009688;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .create-button:hover {
+            background-color: #00796b;
+        }
+        .test-case-form {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .test-case-form.active {
+            display: block;
+            transform: translateX(0);
+        }
+        .test-case-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .test-case-form input[type="text"],
+        .test-case-form input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .test-case-form button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .test-case-form button.clear-button {
+            background-color: #f44336;
+            margin-left: 10px;
+        }
+        .test-case-form button:hover {
+            background-color: #45a049;
+        }
+        .test-case {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .test-case strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const createButton = document.querySelector(".create-button");
+            const form = document.querySelector(".test-case-form");
+            const content = document.querySelector(".content");
+            const sidebar = document.querySelector(".sidebar");
+            const testCaseContainer = document.querySelector(".test-case-container");
+
+            createButton.addEventListener("click", function() {
+                form.classList.toggle("active");
+            });
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const testCaseNumber = form.querySelector("#test-case-number").value;
+                const requirements = form.querySelector("#requirements").value;
+                const startDate = form.querySelector("#start-date").value;
+                const endDate = form.querySelector("#end-date").value;
+
+                const testCaseElement = document.createElement("div");
+                testCaseElement.classList.add("test-case");
+                testCaseElement.innerHTML = `
+                    <strong>Test Case Number:</strong> ${testCaseNumber}<br>
+                    <strong>Requirements:</strong> ${requirements}<br>
+                    <strong>Start Date:</strong> ${startDate}<br>
+                    <strong>End Date:</strong> ${endDate}
+                `;
+                testCaseContainer.appendChild(testCaseElement);
+
+                form.reset();
+            });
+
+            form.querySelector(".clear-button").addEventListener("click", function(event) {
+                event.preventDefault();
+                form.reset();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <button class="create-button">Create</button>
+    </div>
+    <div class="content">
+        <div class="test-case-form">
+            <h2>Create Test Case</h2>
+            <form>
+                <label for="test-case-number">Test Case Number:</label>
+                <input type="text" id="test-case-number" required>
+                <label for="requirements">Requirements:</label>
+                <input type="text" id="requirements" required>
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" required>
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date" required>
+                <button type="submit">Create</button>
+                <button type="button" class="clear-button">Clear</button>
+            </form>
+        </div>
+        <div class="test-case-container"></div>
+    </div>
+</body>
+</html>
