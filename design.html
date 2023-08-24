@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Cases Page</title>
     <style>
-        body {
+         body {
             font-family: Arial, sans-serif;
             margin: 0;
             display: flex;
@@ -33,8 +33,21 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+        .clear-all-button {
+            background-color: #009688;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
         .create-button:hover {
-            background-color: #00796b;
+            background-color: orange;
+        }
+        .clear-all-button:hover {
+            background-color: orange;
         }
         .test-case-form {
             display: none;
@@ -92,48 +105,11 @@
             color: #333;
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const createButton = document.querySelector(".create-button");
-            const form = document.querySelector(".test-case-form");
-            const content = document.querySelector(".content");
-            const sidebar = document.querySelector(".sidebar");
-            const testCaseContainer = document.querySelector(".test-case-container");
-
-            createButton.addEventListener("click", function() {
-                form.classList.toggle("active");
-            });
-
-            form.addEventListener("submit", function(event) {
-                event.preventDefault();
-                const testCaseNumber = form.querySelector("#test-case-number").value;
-                const requirements = form.querySelector("#requirements").value;
-                const startDate = form.querySelector("#start-date").value;
-                const endDate = form.querySelector("#end-date").value;
-
-                const testCaseElement = document.createElement("div");
-                testCaseElement.classList.add("test-case");
-                testCaseElement.innerHTML = `
-                    <strong>Test Case Number:</strong> ${testCaseNumber}<br>
-                    <strong>Requirements:</strong> ${requirements}<br>
-                    <strong>Start Date:</strong> ${startDate}<br>
-                    <strong>End Date:</strong> ${endDate}
-                `;
-                testCaseContainer.appendChild(testCaseElement);
-
-                form.reset();
-            });
-
-            form.querySelector(".clear-button").addEventListener("click", function(event) {
-                event.preventDefault();
-                form.reset();
-            });
-        });
-    </script>
 </head>
 <body>
     <div class="sidebar">
         <button class="create-button">Create</button>
+        <button class="clear-all-button">Clear All</button>
     </div>
     <div class="content">
         <div class="test-case-form">
@@ -152,6 +128,12 @@
             </form>
         </div>
         <div class="test-case-container"></div>
+        <form action="plan.html">
+        <div class="two">
+            <button class="create-button">Create Testplan</button>
+        </div>
+        </form>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
