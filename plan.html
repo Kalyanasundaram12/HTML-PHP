@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Plan Generator</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Test Plan Generator</h1>
+  <form id="testPlanForm">
+    <!-- Document Information -->
+    <h2>Document Information</h2>
+    <label for="documentTitle">Document Title:</label>
+    <input type="text" id="documentTitle" required>
+    <label for="documentVersion">Document Version:</label>
+    <input type="text" id="documentVersion" required>
+    <label for="dateOfPreparation">Date of Preparation:</label>
+    <input type="date" id="dateOfPreparation" required>
+    <label for="preparedBy">Prepared By:</label>
+    <input type="text" id="preparedBy" required>
+    <label for="approvedBy">Approved By:</label>
+    <input type="text" id="approvedBy" required>
+
+    <!-- Introduction -->
+    <h2>Introduction</h2>
+    <label for="briefOverview">Brief Overview of the Project:</label>
+    <textarea id="briefOverview" rows="4" required></textarea>
+    <label for="purpose">Purpose of the Test Plan:</label>
+    <textarea id="purpose" rows="4" required></textarea>
+    <label for="scope">Scope of Testing:</label>
+    <textarea id="scope" rows="4" required></textarea>
+    <label for="objectives">Objectives of Testing:</label>
+    <textarea id="objectives" rows="4" required></textarea>
+
+    <!-- Test Strategy -->
+    <h2>Test Strategy</h2>
+    <label for="testingApproach">Testing Approach:</label>
+    <input type="text" id="testingApproach" required>
+    <label for="testingLevels">Testing Levels:</label>
+    <input type="text" id="testingLevels" required>
+    <label for="testTypes">Test Types:</label>
+    <input type="text" id="testTypes" required>
+
+    <!-- Include other sections and fields similarly -->
+
+<!-- Risk Assessment -->
+<h2>Risk Assessment</h2>
+<label for="potentialRisks">Identification of Potential Risks and Mitigation Strategies:</label>
+<textarea id="potentialRisks" rows="4" required></textarea>
+<label for="riskImpact">Impact and Likelihood Assessment:</label>
+<textarea id="riskImpact" rows="4" required></textarea>
+
+<!-- Test Deliverables -->
+<h2>Test Deliverables</h2>
+<label for="testArtifacts">List of Test Artifacts to be Produced:</label>
+<textarea id="testArtifacts" rows="4" required></textarea>
+<label for="testDataRequirements">Test Data Requirements:</label>
+<textarea id="testDataRequirements" rows="4" required></textarea>
+
+<!-- Test Case Specification -->
+<h2>Test Case Specification</h2>
+<label for="testCaseIDs">Test Case IDs:</label>
+<textarea id="testCaseIDs" rows="4" required></textarea>
+<label for="testCaseDescriptions">Test Case Descriptions:</label>
+<textarea id="testCaseDescriptions" rows="4" required></textarea>
+<label for="testPreconditions">Preconditions and Inputs:</label>
+<textarea id="testPreconditions" rows="4" required></textarea>
+<label for="expectedResults">Expected Results:</label>
+<textarea id="expectedResults" rows="4" required></textarea>
+<label for="testExecutionSteps">Test Case Execution Steps:</label>
+<textarea id="testExecutionSteps" rows="4" required></textarea>
+
+<!-- Test Execution Plan -->
+<h2>Test Execution Plan</h2>
+<label for="executionApproach">Test Execution Approach:</label>
+<textarea id="executionApproach" rows="4" required></textarea>
+<label for="entryExitCriteria">Entry and Exit Criteria for Testing Phases:</label>
+<textarea id="entryExitCriteria" rows="4" required></textarea>
+<label for="testEnvConfig">Test Environment Configuration:</label>
+<textarea id="testEnvConfig" rows="4" required></textarea>
+
+<!-- Defect Management -->
+<h2>Defect Management</h2>
+<label for="defectProcess">Defect Reporting and Tracking Process:</label>
+<textarea id="defectProcess" rows="4" required></textarea>
+<label for="defectSeverity">Severity and Priority Definitions:</label>
+<textarea id="defectSeverity" rows="4" required></textarea>
+
+<!-- Test Metrics and Reporting -->
+<h2>Test Metrics and Reporting</h2>
+<label for="metrics">Metrics to Measure Test Progress and Quality:</label>
+<textarea id="metrics" rows="4" required></textarea>
+<label for="reportingFreq">Reporting Frequency and Format:</label>
+<textarea id="reportingFreq" rows="4" required></textarea>
+
+<!-- Dependencies -->
+<h2>Dependencies</h2>
+<label for="otherTeams">Dependencies on Other Teams or Components:</label>
+<textarea id="otherTeams" rows="4" required></textarea>
+<label for="thirdParty">Third-Party Integrations:</label>
+<textarea id="thirdParty" rows="4" required></textarea>
+
+<!-- Approvals -->
+<h2>Approvals</h2>
+<label for="signOff">Sign-off Requirements for Different Testing Phases:</label>
+<textarea id="signOff" rows="4" required></textarea>
+
+<!-- Change Management -->
+<h2>Change Management</h2>
+<label for="changeProcess">Process for Handling Changes to the Test Plan:</label>
+<textarea id="changeProcess" rows="4" required></textarea>
+
+<!-- Test Exit Criteria -->
+<h2>Test Exit Criteria</h2>
+<label for="exitCriteria">Conditions to Determine When Testing Should Stop:</label>
+<textarea id="exitCriteria" rows="4" required></textarea>
+
+<button type="submit">Generate Test Plan</button>
+</form>
+
+<div id="testPlanOutput" class="hidden">
+<!-- Test Plan output will be displayed here -->
+<!-- Use JavaScript to populate this section -->
+</div>
+
+  <script src="plan.js"></script>
+</body>
+</html>
